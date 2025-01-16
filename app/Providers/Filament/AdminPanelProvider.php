@@ -41,6 +41,9 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])
+            ->resources([
+                config('filament-logger.activity_resource')
+            ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -51,9 +54,14 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                \Hasnayeen\Themes\Http\Middleware\SetTheme::class
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])->plugins([
+                \Hasnayeen\Themes\ThemesPlugin::make(),
+                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+                \TomatoPHP\FilamentUsers\FilamentUsersPlugin::make(),
             ]);
     }
 }
