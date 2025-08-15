@@ -42,7 +42,6 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\FilamentInfoWidget::class,
             ])
             ->resources([
-                config('filament-logger.activity_resource')
             ])
             ->middleware([
                 EncryptCookies::class,
@@ -58,10 +57,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ])->plugins([
-                \Hasnayeen\Themes\ThemesPlugin::make(),
-                \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
-                \TomatoPHP\FilamentUsers\FilamentUsersPlugin::make(),
-            ]);
+            ])->plugins([]);
     }
 }
