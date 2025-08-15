@@ -1,0 +1,28 @@
+{
+    "name": "abdiwaahid/users",
+    "description": "a package to manage users",
+    "authors": [
+        {
+            "name": "abdiwaahid",
+            "email": "abdiwaahid01@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^4.0",
+        "laravel/framework": "^11.31"
+    },
+    "autoload": {
+        "psr-4": {
+            "Abdiwaahid\\Users\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Abdiwaahid\\Users\\UsersServiceProvider::class"
+            ]
+        }
+    }
+}
