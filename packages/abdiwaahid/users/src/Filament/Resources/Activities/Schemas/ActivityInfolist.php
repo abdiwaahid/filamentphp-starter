@@ -17,7 +17,7 @@ class ActivityInfolist
                 Grid::make(3)
                     ->schema([
                         Section::make([
-                            TextEntry::make('causer.name')->default('N/A')->label(__('users::messages.activity.causer')),
+                            TextEntry::make('causer.name')->default('N/A')->label(__('abdiwaahid-users::messages.activity.causer')),
                             TextEntry::make('subject')->getStateUsing(function ($record) {
                                 if (blank($record->subject_type)) {
                                     return $record->subject_type;
@@ -28,19 +28,19 @@ class ActivityInfolist
                         ])->columns(['md' => 2])->columnSpan(2),
                         Section::make([
                             TextEntry::make('event'),
-                            TextEntry::make('created_at')->label(__('users::messages.activity.logged_at'))->dateTime(),
+                            TextEntry::make('created_at')->label(__('abdiwaahid-users::messages.activity.logged_at'))->dateTime(),
                         ])
                     ])->columnSpanFull(),
                 Section::make()->schema(function ($record) {
                     $schema = [];
                     if ($record->properties && blank($record->properties['attributes'] ?? [])) {
-                        $schema[] = KeyValueEntry::make('properties')->label(__('users::messages.activity.subject'));
+                        $schema[] = KeyValueEntry::make('properties')->label(__('abdiwaahid-users::messages.activity.subject'));
                     }
                     if ($record->properties && filled($record->properties['old'] ?? [])) {
-                        $schema[] = KeyValueEntry::make('properties.old')->label(__('users::messages.activity.old'));
+                        $schema[] = KeyValueEntry::make('properties.old')->label(__('abdiwaahid-users::messages.activity.old'));
                     }
                     if ($record->properties && filled($record->properties['attributes'] ?? [])) {
-                        $schema[] = KeyValueEntry::make('properties.attributes')->label(__('users::messages.activity.attributes'));
+                        $schema[] = KeyValueEntry::make('properties.attributes')->label(__('abdiwaahid-users::messages.activity.attributes'));
                     }
                     return $schema;
                 })->columns()->columnSpanFull(),

@@ -8,7 +8,7 @@ return [
     'activity.navigation.group' => 'Access Control',
     'activity.navigation.label' => 'Activity Log',
     'activity.navigation.icon' => 'heroicon-o-clipboard-document-list',
-    
+
     'activity.event' => 'Event',
     'activity.description' => 'Description',
     'activity.subject' => 'Subject',
@@ -21,7 +21,7 @@ return [
 
 
     'language-switcher' => [
-        'so' => 'Somali',
-        'en' => 'English',
+        'so' => 'Af Soomaali',
+        'en' => 'Ingiriisi',
     ]
 ];

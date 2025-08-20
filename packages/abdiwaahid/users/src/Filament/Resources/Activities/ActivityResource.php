@@ -23,17 +23,17 @@ class ActivityResource extends Resource
 
     public static function getNavigationGroup(): string
     {
-        return __('users::messages.activity.navigation.group');
+        return __('abdiwaahid-users::messages.activity.navigation.group');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('users::messages.activity.navigation.label');
+        return __('abdiwaahid-users::messages.activity.navigation.label');
     }
 
     public static function getNavigationIcon(): string
     {
-        return __('users::messages.activity.navigation.icon');
+        return __('abdiwaahid-users::messages.activity.navigation.icon');
     }
 
     public static function form(Schema $schema): Schema

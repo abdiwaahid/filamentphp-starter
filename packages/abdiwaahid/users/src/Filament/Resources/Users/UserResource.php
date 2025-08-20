@@ -24,17 +24,17 @@ class UserResource extends Resource
 
     public static function getNavigationGroup(): string
     {
-        return __('users::messages.user.navigation.group');
+        return __('abdiwaahid-users::messages.user.navigation.group');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('users::messages.user.navigation.label');
+        return __('abdiwaahid-users::messages.user.navigation.label');
     }
 
     public static function getNavigationIcon(): string
     {
-        return __('users::messages.user.navigation.icon');
+        return __('abdiwaahid-users::messages.user.navigation.icon');
     }
 
     public static function form(Schema $schema): Schema
