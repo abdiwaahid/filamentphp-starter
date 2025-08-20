@@ -21,8 +21,6 @@ class ActivityResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Activity';
-
     public static function getNavigationGroup(): string
     {
         return __('users::messages.activity.navigation.group');
