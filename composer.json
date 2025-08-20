@@ -30,6 +30,7 @@
         "psr-4": {
             "App\\": "app/",
             "Abdiwaahid\\Users\\": "packages/abdiwaahid/users/src/",
+            "Abdiwaahid\\LanguageSwitcher\\": "packages/abdiwaahid/language-switcher/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }

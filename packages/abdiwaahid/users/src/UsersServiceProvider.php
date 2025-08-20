@@ -17,22 +17,12 @@ class UsersServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        Filament::registerRenderHook(
-            PanelsRenderHook::USER_MENU_BEFORE,
-            fn() => $this->getLanguageSwitcherView(),
-        );
 
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'abdiwaahid-users');
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'abdiwaahid-users');
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
-
-        $this->mergeConfigFrom(__DIR__ . '/../config/abdiwaahid-language-switcher.php', 'abdiwaahid-language-switcher');
         
         $this->publishes([
             __DIR__ . '/../lang' => $this->app->langPath('vendor/abdiwaahid-users'),
-        ]);
-        $this->publishes([
-            __DIR__ . '/../config/abdiwaahid-language-switcher.php' => config_path('abdiwaahid-language-switcher.php'),
         ]);
     }
 
@@ -65,12 +55,5 @@ class UsersServiceProvider extends ServiceProvider
                 ->log('Login');
         });
 
-    }
-
-    protected function getLanguageSwitcherView()
-    {
-        $locale = Cache::get('locale', app()->getLocale());
-        $languages = collect(config('abdiwaahid-language-switcher.languages'))->except($locale)->toArray();
-        return view('abdiwaahid-users::language-switcher', compact('locale', 'languages'));
     }
 }
