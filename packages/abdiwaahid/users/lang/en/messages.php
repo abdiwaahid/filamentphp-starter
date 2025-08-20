@@ -17,4 +17,5 @@ return [
     'activity.properties' => 'Properties',
     'activity.old' => 'Old',
     'activity.attributes' => 'Attributes',
+    'activity.log_name' => 'Type',
 ];

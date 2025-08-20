@@ -4,8 +4,12 @@ namespace Abdiwaahid\Users;
 
 use Abdiwaahid\Users\Observers\ActivityObserver;
 use Filament\Facades\Filament;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Activitylog\ActivityLogger;
+use Spatie\Activitylog\ActivityLogStatus;
 
 class UsersServiceProvider extends ServiceProvider
 {
@@ -29,6 +33,22 @@ class UsersServiceProvider extends ServiceProvider
         foreach ($resources as $resource) {
             $resource::getModel()::observe(ActivityObserver::class);
         }
+
+        Event::listen(Login::class, function ($event) {
+            app(ActivityLogger::class)
+            ->useLog('Access')
+            ->setLogStatus(app(ActivityLogStatus::class))
+            ->withProperties([
+                'attributes' => [
+                    'ip_address' => request()->ip(),
+                    'user_agent' => request()->userAgent(),
+                ],
+            ])
+            ->event('Login')
+            ->by($event->user)
+            ->on($event->user)
+            ->log('Login');
+        });
     }
     
 }
