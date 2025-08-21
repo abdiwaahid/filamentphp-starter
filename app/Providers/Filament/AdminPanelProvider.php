@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use Abdiwaahid\Users\Http\Middleware\LanguageSwitcherMiddleware;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 use Filament\Pages\Dashboard;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
@@ -59,6 +60,9 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
                 LanguageSwitcherMiddleware::class,
+            ])
+            ->plugins([
+                FilamentShieldPlugin::make(),
             ])
             ->authMiddleware([
                 Authenticate::class,

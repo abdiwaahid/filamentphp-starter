@@ -9,21 +9,14 @@ use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Activitylog\LogOptions;
-use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable  implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
-    // use LogsActivity;
-
-    // public function getActivitylogOptions(): LogOptions
-    // {
-    //     return LogOptions::defaults()->logAll()
-    //     ->logExcept(['password','remember_token','email_verified_at']);
-    // }
+    use HasRoles;
+    
     /**
      * The attributes that are mass assignable.
      *

@@ -21,6 +21,8 @@ class ActivityResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
+    protected static ?int $navigationSort = 2;
+
     public static function getNavigationGroup(): string
     {
         return __('abdiwaahid-users::messages.activity.navigation.group');
